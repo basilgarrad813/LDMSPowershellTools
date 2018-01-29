@@ -1,0 +1,1 @@
+﻿Stop-Service -DisplayName LANDesk*,Managed* -Verbose -Force;  Start-Service -DisplayName LANDesk*,Managed* -Verbose

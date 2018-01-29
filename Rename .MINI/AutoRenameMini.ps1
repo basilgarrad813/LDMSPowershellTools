@@ -1,4 +1,4 @@
-<# 
+﻿<# 
     .Description
     This script will subscribe to File events in your LDScan folder and if .mini files are ever written they will be re-written to .miniscn
     This script solves a problem where scan files would appear in your ldscan folder but never get used cause they are the incorrect file extension.
