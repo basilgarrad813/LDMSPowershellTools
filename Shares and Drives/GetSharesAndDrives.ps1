@@ -1,4 +1,4 @@
-[cmdletbinding()] 
+﻿[cmdletbinding()] 
 
  
 param([Parameter(ValueFromPipeline = $True, 
@@ -157,7 +157,12 @@ function Get-MappedDrives($ComputerName) {
 
             if ($sessions) {
 
-                $explorer = $sessions[0]
+                $explorer = $sessions
+
+                if ($sessions -is [array]) {
+                    $explorer = $sessions[0]
+                }
+            
       
                 $sid = ($explorer.GetOwnerSid()).sid
 
@@ -194,7 +199,7 @@ function Get-MappedDrives($ComputerName) {
 
     }
     catch {
-        Write-output $_.exception | format-list -force
+        Write-Host "An error occured obtaining explorer sessions"
     }
 
 }
@@ -236,3 +241,5 @@ try {
 catch {
     Write-output $_.exception | format-list -force
 }
+
+
